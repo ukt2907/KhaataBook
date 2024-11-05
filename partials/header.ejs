@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/stylesheets/style.css">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" rel="stylesheet" />
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body>
+    <div class="navbar flex justify-between w-full px-20 py-10">
+        <h3>Khaatabook</h3>
+       <% if (errorMessage.length > 0) {%>
+        <div id="error-message" class="absolute top-10 left-1/2 transform -translate-x-1/2 -translate-y-1/2 px-3 py-2 bg-red-500 rounded-md error-message">
+            <h3 class="text-red-200">
+                <%= errorMessage %>
+            </h3>
+        </div>
+        <%} %>
+        <!-- Agar loggedin variable pehle se define hai, toh uski jo value hai (true ya false) wahi use hogi.
+        Agar loggedin variable pehle se define nahi hai, toh loggedin ko true set kar diya jayega. -->
+        <% var loggedin = typeof loggedin !== 'undefined' ? loggedin : true %>
+        <% if(loggedin) { %>
+            <div class="links flex gap-4">
+                <a href="/">Home</a>
+                <a href="/hisaab/create">Create new hisaab</a>
+                <a class="text-red-500" href="/logout">Logout</a>
+            </div>
+        <% } %>
+    </div>
